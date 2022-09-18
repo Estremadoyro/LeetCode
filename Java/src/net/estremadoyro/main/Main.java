@@ -43,8 +43,8 @@ public class Main {
         MergeTwoSortedLists mergeTwoSortedLists = new MergeTwoSortedLists();
 
         Node mergedSortedLists = mergeTwoSortedLists.result();
-        ArrayList<Integer> mergedSortedListsCount = linkedList.loopLinkedList(mergedSortedLists);
-        System.out.format("Merged sorted list: %s%n", mergedSortedListsCount.toString());
+        ArrayList<Integer> mergedSortedListsValues = linkedList.loopLinkedList(mergedSortedLists);
+        System.out.format("Merged sorted list: %s%n", mergedSortedListsValues.toString());
         System.out.println("------------------------------------------------------------");
     }
 }

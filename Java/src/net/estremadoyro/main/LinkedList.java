@@ -1,22 +1,25 @@
 package net.estremadoyro.main;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LinkedList {
     protected Node headNode;
 
     // Constructor
     public LinkedList() {
-       this.buildLinkedList();
+        this.buildLinkedList();
     }
 
     public Node customLinkedList(int[] values) {
-        if (values.length == 0) { return new Node(-1); }
-        if (values.length <= 1) { return new Node(values[0]); }
+        if (values.length == 0) {
+            return new Node(-1);
+        }
+        if (values.length <= 1) {
+            return new Node(values[0]);
+        }
         Node head = new Node(values[0]); // head    -> Node (x001) .next() -> Node (x002)
         Node pointer = head;             // pointer -> Node (x001)
-                                         // pointer -> Node (x002)
+        // pointer -> Node (x002)
 
         for (int i = 1; i < values.length; i++) {
             pointer.setNext(new Node(values[i]));
@@ -44,9 +47,11 @@ public class LinkedList {
     public ArrayList<Integer> loopLinkedList(Node headNode) {
         Node currentList = headNode;
         ArrayList<Integer> values = new ArrayList<Integer>();
-
+        if (headNode == null) {
+            return new ArrayList<Integer>();
+        }
         do {
-            values.add(currentList.getValue());
+            values.add(currentList.getVal());
             currentList = currentList.getNext();
         } while (currentList != null);
         return values;
@@ -67,52 +72,38 @@ public class LinkedList {
         Node newNode = new Node(value);
 
         Node currentNode = node;
-        while(currentNode.getNext() != null) {
+        while (currentNode.getNext() != null) {
             currentNode = currentNode.getNext();
         }
         currentNode.setNext(newNode);
         return node;
-        // currentNode = head
-        // while .next() != null
-        //   currentNode = currentNode.next()
-        // []
-        // currentNode.next() = Node(1)
-        // - node: [Node(1, null)]
-        // newNode = new Node(2, null)
-        // currentNode = node
-        // node.next() = null
-        //   -> currentNode.next() = newNode
-        //   -> node = Node(2, null)
-        // - node = [Node(1, Node(2, null))]
-        // newNode = new Node(4, null)
-        // currentNode = node
-        // currentNode.next() = Node(2, null)
-        //   -> currentNode = Node(2, null)
-        // currentNode.next() = null
-        //  -> currentNode.next() = newNode
-        //  -> node = []
-        // currentNode.next() = null
-        // currentNode
     }
 }
 
 class Node {
-    private Node next = null;
-    private final int value;
+    Node next;
+    int val;
 
-    public Node(int value) {
-        this.value = value;
+    public Node(int val) {
+        this.val = val;
     }
 
-    public int getValue() {
-        return this.value;
+    public Node() {
+    }
+
+    public int getVal() {
+        return this.val;
+    }
+
+    public void setVal(int val) {
+        this.val = val;
     }
 
     public Node getNext() {
         return this.next;
     }
 
-    public void setNext(Node node)  {
+    public void setNext(Node node) {
         this.next = node;
     }
 }
