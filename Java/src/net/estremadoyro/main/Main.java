@@ -52,5 +52,11 @@ public class Main {
         RemoveElement removeElement = new RemoveElement();
         System.out.printf("Removed elements: %d%n", removeElement.main());
         System.out.println("------------------------------------------------------------");
+
+        // 26. Remove Element
+        System.out.println("26. Remove duplicates from array (In-place)");
+        RemoveDuplicates removeDuplicates = new RemoveDuplicates();
+        System.out.format("Duplicates count: %d%n", removeDuplicates.result());
+        System.out.println("------------------------------------------------------------");
     }
 }
