@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         // Input
-        Integer[] input = { 3, 6, 34, 12, 6, 1, 0, 3, 6, 2, 12, 53 };
+        Integer[] input = {3, 6, 34, 12, 6, 1, 0, 3, 6, 2, 12, 53};
         System.out.format("Input %s%n", Arrays.toString(input));
 
         // BubbleSort
@@ -45,6 +45,12 @@ public class Main {
         Node mergedSortedLists = mergeTwoSortedLists.result();
         ArrayList<Integer> mergedSortedListsValues = linkedList.loopLinkedList(mergedSortedLists);
         System.out.format("Merged sorted list: %s%n", mergedSortedListsValues.toString());
+        System.out.println("------------------------------------------------------------");
+
+        // 27. Remove Element
+        System.out.println("27. Remove Element");
+        RemoveElement removeElement = new RemoveElement();
+        System.out.printf("Removed elements: %d%n", removeElement.main());
         System.out.println("------------------------------------------------------------");
     }
 }
