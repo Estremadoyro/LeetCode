@@ -58,5 +58,10 @@ public class Main {
         RemoveDuplicates removeDuplicates = new RemoveDuplicates();
         System.out.format("Duplicates count: %d%n", removeDuplicates.result());
         System.out.println("------------------------------------------------------------");
+
+        // 35. Search Insert Position
+        System.out.println("35. Search Insert Position");
+        SearchInsertPosition searchInsertPosition = new SearchInsertPosition();
+        System.out.printf("Index: %d%n", searchInsertPosition.main());
     }
 }
