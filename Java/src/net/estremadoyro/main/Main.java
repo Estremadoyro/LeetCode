@@ -63,5 +63,13 @@ public class Main {
         System.out.println("35. Search Insert Position");
         SearchInsertPosition searchInsertPosition = new SearchInsertPosition();
         System.out.printf("Index: %d%n", searchInsertPosition.main());
+        System.out.println("------------------------------------------------------------");
+
+        // 58. Length of Last Word
+        System.out.println("58. Length of Last Word");
+        LengthOfLastWord lengthOfLastWord = new LengthOfLastWord();
+        System.out.printf("Length of last word: %d%n", lengthOfLastWord.main());
+        System.out.println("------------------------------------------------------------");
+
     }
 }
