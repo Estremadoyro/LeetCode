@@ -30,6 +30,7 @@ public class PlusOne {
         // If there were no 9's, then just increase the last element by +1
         // If all were 9 (0 to this point), append 1 to the beginning
         // If none of the above were met, then append +1 to the element to the left of the last index were 9 was found
+        // O(k * n)
         HashMap<Integer, Integer> positions9FoundMap = new HashMap<>();
 
         for (int i = 0; i < digits.length; i++) {
@@ -51,7 +52,8 @@ public class PlusOne {
         }
         if (positions9FoundMap.size() == digits.length) {
             // All 9's -> Add 1 to the beginning
-            int[] output = Arrays.copyOf(new int[]{1}, digits.length + 1);
+            int[] output = new int[digits.length + 1];
+            output[0] = 1;
             System.arraycopy(digits, 0, output, 1, digits.length);
             return output;
         } else {
@@ -62,6 +64,7 @@ public class PlusOne {
         }
     }
 
+    // When using an array of -1 to insert the 9's found position instead of a HashMap
     private int[] filterElementsInArray(int[] array) {
         return Arrays.stream(array).filter(x -> x != -1).toArray();
     }
