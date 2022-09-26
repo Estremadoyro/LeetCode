@@ -71,5 +71,9 @@ public class Main {
         System.out.printf("Length of last word: %d%n", lengthOfLastWord.main());
         System.out.println("------------------------------------------------------------");
 
+        // 66. Plus One
+        System.out.println("66. Plus One");
+        PlusOne plusOne = new PlusOne();
+        System.out.printf("Incremented lartge integer: %s%n", Arrays.toString(plusOne.main()));
     }
 }
