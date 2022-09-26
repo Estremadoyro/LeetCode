@@ -30,37 +30,33 @@ public class PlusOne {
         // If there were no 9's, then just increase the last element by +1
         // If all were 9 (0 to this point), append 1 to the beginning
         // If none of the above were met, then append +1 to the element to the left of the last index were 9 was found
-        int[] positions9Found = new int[100];
+        HashMap<Integer, Integer> positions9FoundMap = new HashMap<>();
 
-        Arrays.fill(positions9Found, -1);
         for (int i = 0; i < digits.length; i++) {
             int j = digits.length - i - 1;
             System.out.printf("j value: %d%n", j);
             System.out.printf("digits[%d]: %d%n", j, digits[j]);
             if (digits[j] == 9) {
-                positions9Found[i] = j;
+                positions9FoundMap.put(i, j);
                 digits[j] = 0;
             } else {
                 break;
             }
         }
-        // Filter empty values
-        System.out.printf("positions9Found: %s%n", Arrays.toString(positions9Found));
-        positions9Found = filterElementsInArray(positions9Found);
-        System.out.printf("positions9Found: %s%n", Arrays.toString(positions9Found));
-        if (positions9Found.length == 0) {
+
+        if (positions9FoundMap.size() == 0) {
             // No 9's -> Add one to the last element
             digits[digits.length - 1]++;
             return digits;
         }
-        if (positions9Found.length == digits.length) {
+        if (positions9FoundMap.size() == digits.length) {
             // All 9's -> Add 1 to the beginning
             int[] output = Arrays.copyOf(new int[]{1}, digits.length + 1);
             System.arraycopy(digits, 0, output, 1, digits.length);
             return output;
         } else {
             // Some 9's found -> Add 1 to the (k-1) of the pos. were the last 9 was found
-            int lastIndexFound = positions9Found[positions9Found.length - 1];
+            int lastIndexFound = positions9FoundMap.get(positions9FoundMap.size() - 1);
             digits[lastIndexFound - 1]++;
             return digits;
         }
